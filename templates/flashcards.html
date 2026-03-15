@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% block title %}Flashcards{% endblock %}
+
+{% block content %}
+<h1 class="mb-1">📇 Flashcards</h1>
+<p class="text-muted mb-4">Click a card to reveal the translation. Use the arrows to navigate.</p>
+
+<div class="row mb-3 g-2">
+    <div class="col-auto">
+        <form class="d-flex gap-2 flex-wrap" method="get">
+            <select name="category" class="form-select form-select-sm" onchange="this.form.submit()">
+                <option value="">All Categories</option>
+                {% for key, cat in categories.items() %}
+                <option value="{{ key }}" {% if selected_category == key %}selected{% endif %}>
+                    {{ cat.label }}
+                </option>
+                {% endfor %}
+            </select>
+            <select name="difficulty" class="form-select form-select-sm" onchange="this.form.submit()">
+                <option value="">All Levels</option>
+                <option value="beginner" {% if selected_difficulty == 'beginner' %}selected{% endif %}>Beginner</option>
+                <option value="intermediate" {% if selected_difficulty == 'intermediate' %}selected{% endif %}>Intermediate</option>
+                <option value="advanced" {% if selected_difficulty == 'advanced' %}selected{% endif %}>Advanced</option>
+            </select>
+        </form>
+    </div>
+</div>
+
+{% if words %}
+<div class="text-muted small mb-3">{{ words|length }} card(s) &mdash; <span id="progress-text">Card 1 of {{ words|length }}</span></div>
+
+<div class="flashcard-container mx-auto mb-4">
+    {% for word in words %}
+    <div class="flashcard {% if not loop.first %}d-none{% endif %}" data-index="{{ loop.index0 }}">
+        <div class="flashcard-inner" id="card-{{ loop.index0 }}">
+            <div class="flashcard-front card shadow border-0 p-4 text-center">
+                <div class="text-muted small mb-2">
+                    <span class="badge bg-secondary">{{ word.category }}</span>
+                    <span class="badge bg-light text-dark ms-1">{{ word.difficulty }}</span>
+                </div>
+                <h2 class="fw-bold text-primary my-3">{{ word.spanish }}</h2>
+                <p class="text-muted small">Click to reveal translation</p>
+            </div>
+            <div class="flashcard-back card shadow border-0 p-4 text-center">
+                <h3 class="fw-bold text-success mb-2">{{ word.english }}</h3>
+                <p class="text-muted small mb-2">{{ word.notes }}</p>
+                <hr />
+                <p class="fst-italic small mb-1"><strong>🇲🇽</strong> {{ word.example_es }}</p>
+                <p class="small text-muted">{{ word.example_en }}</p>
+                {% if true %}
+                <button class="btn btn-outline-info btn-sm mt-2 explain-btn"
+                        data-word-id="{{ word.id }}">
+                    🤖 AI Explain
+                </button>
+                <div class="ai-explanation mt-2 text-start small d-none" id="explain-{{ word.id }}"></div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="d-flex justify-content-center align-items-center gap-3 mb-4">
+    <button class="btn btn-outline-secondary" id="prev-btn" disabled>← Previous</button>
+    <button class="btn btn-primary" id="flip-btn">Flip Card</button>
+    <button class="btn btn-outline-secondary" id="next-btn" {% if words|length <= 1 %}disabled{% endif %}>Next →</button>
+</div>
+
+{% else %}
+<div class="alert alert-info">No words found for the selected filters.</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+const totalCards = {{ words | length }};
+let current = 0;
+let flipped = false;
+
+function showCard(index) {
+    document.querySelectorAll('.flashcard').forEach((c, i) => {
+        c.classList.toggle('d-none', i !== index);
+    });
+    document.getElementById('progress-text').textContent =
+        `Card ${index + 1} of ${totalCards}`;
+    document.getElementById('prev-btn').disabled = index === 0;
+    document.getElementById('next-btn').disabled = index === totalCards - 1;
+    flipped = false;
+    updateFlipState();
+}
+
+function updateFlipState() {
+    const inner = document.getElementById(`card-${current}`);
+    if (inner) {
+        if (flipped) {
+            inner.querySelector('.flashcard-front').classList.add('d-none');
+            inner.querySelector('.flashcard-back').classList.remove('d-none');
+        } else {
+            inner.querySelector('.flashcard-front').classList.remove('d-none');
+            inner.querySelector('.flashcard-back').classList.add('d-none');
+        }
+    }
+}
+
+document.getElementById('flip-btn')?.addEventListener('click', () => {
+    flipped = !flipped;
+    updateFlipState();
+});
+
+document.getElementById('prev-btn')?.addEventListener('click', () => {
+    if (current > 0) { current--; showCard(current); }
+});
+
+document.getElementById('next-btn')?.addEventListener('click', () => {
+    if (current < totalCards - 1) { current++; showCard(current); }
+});
+
+// Show back side by default hidden
+document.querySelectorAll('.flashcard-back').forEach(el => el.classList.add('d-none'));
+
+// AI Explain buttons
+document.querySelectorAll('.explain-btn').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        const wordId = btn.dataset.wordId;
+        const explainDiv = document.getElementById(`explain-${wordId}`);
+        if (!explainDiv.classList.contains('d-none')) {
+            explainDiv.classList.add('d-none');
+            return;
+        }
+        btn.disabled = true;
+        btn.textContent = '⏳ Loading...';
+        try {
+            const resp = await fetch('/api/explain', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({word_id: wordId})
+            });
+            const data = await resp.json();
+            if (data.explanation) {
+                explainDiv.textContent = data.explanation;
+                explainDiv.classList.remove('d-none');
+            } else {
+                explainDiv.textContent = data.error || 'Could not load explanation.';
+                explainDiv.classList.remove('d-none');
+            }
+        } catch {
+            explainDiv.textContent = 'AI service unavailable.';
+            explainDiv.classList.remove('d-none');
+        }
+        btn.disabled = false;
+        btn.textContent = '🤖 AI Explain';
+    });
+});
+</script>
+{% endblock %}

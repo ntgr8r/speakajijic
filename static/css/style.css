@@ -1,0 +1,78 @@
+/* SpeakAjijic – custom styles */
+
+:root {
+    --ajijic-blue: #1a6ea8;
+    --ajijic-green: #2e7d32;
+    --ajijic-terracotta: #c0522b;
+    --ajijic-gold: #f0a500;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Navbar */
+.navbar-brand {
+    font-size: 1.4rem;
+    letter-spacing: 0.02em;
+}
+
+/* Featured word card on home */
+.featured-card {
+    border-radius: 1rem;
+    transition: transform 0.2s;
+}
+.featured-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Category cards */
+.category-card {
+    border-radius: 0.75rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+    background: #fff;
+}
+.category-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-2px);
+}
+
+/* Vocabulary cards */
+.vocab-card {
+    border-radius: 0.75rem;
+    transition: box-shadow 0.2s;
+}
+.vocab-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Flashcard layout */
+.flashcard-container {
+    max-width: 640px;
+}
+
+.flashcard .card {
+    min-height: 260px;
+    border-radius: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Quiz choice buttons */
+.choice-btn {
+    border-radius: 0.5rem;
+    transition: background-color 0.15s;
+}
+
+/* AI explanation box */
+.ai-explanation {
+    background: #f0f7ff;
+    border-left: 3px solid var(--ajijic-blue);
+    border-radius: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    white-space: pre-wrap;
+}
