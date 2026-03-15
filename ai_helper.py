@@ -32,7 +32,7 @@ AJIJIC_SYSTEM_PROMPT = (
 
 
 def _get_client() -> Any:
-    """Lazily initialise and return the OpenAI client."""
+    """Lazily initialize and return the OpenAI client."""
     global _client
     if _client is None:
         if not _OPENAI_AVAILABLE:

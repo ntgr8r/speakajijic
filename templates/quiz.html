@@ -119,7 +119,7 @@ function showResults() {
     const pct = Math.round((score / total) * 100);
     document.getElementById('results-score').textContent = `${score} / ${total} (${pct}%)`;
     let emoji = '😅', msg = '¡Sigue practicando! Keep practicing!';
-    if (pct >= 90) { emoji = '🏆'; msg = '¡Excelente! You\'re a Ajijic Spanish pro!'; }
+    if (pct >= 90) { emoji = '🏆'; msg = '¡Excelente! You\'re an Ajijic Spanish pro!'; }
     else if (pct >= 70) { emoji = '🎉'; msg = '¡Muy bien! Great job — keep it up!'; }
     else if (pct >= 50) { emoji = '👍'; msg = '¡Bueno! Good effort — review the flashcards!'; }
     document.getElementById('results-emoji').textContent = emoji;
