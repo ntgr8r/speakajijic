@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% block title %}AI Practice{% endblock %}
+
+{% block content %}
+<h1 class="mb-1">🤖 AI Conversation Practice</h1>
+<p class="text-muted mb-4">Practice real-life conversations in the style of Ajijic, Jalisco.</p>
+
+{% if not ai_available %}
+<div class="alert alert-warning">
+    <strong>AI features are not enabled.</strong>
+    Add your <code>OPENAI_API_KEY</code> to a <code>.env</code> file to unlock AI-powered
+    explanations, dialogues, and translation checks.
+    See <code>.env.example</code> for setup instructions.
+</div>
+{% endif %}
+
+<div class="row g-4">
+    <!-- Dialogue practice -->
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+                <h5 class="fw-bold mb-3">💬 Practice Dialogue</h5>
+                <p class="text-muted small">Enter a scenario and get a short dialogue set in Ajijic.</p>
+                <div class="mb-2">
+                    <label class="form-label small">Scenario suggestions:</label>
+                    <div class="d-flex flex-wrap gap-1 mb-2" id="topic-suggestions">
+                        <button class="btn btn-outline-secondary btn-sm suggestion-btn">at the market</button>
+                        <button class="btn btn-outline-secondary btn-sm suggestion-btn">ordering food at a restaurant</button>
+                        <button class="btn btn-outline-secondary btn-sm suggestion-btn">asking for directions</button>
+                        <button class="btn btn-outline-secondary btn-sm suggestion-btn">talking to a neighbor</button>
+                        <button class="btn btn-outline-secondary btn-sm suggestion-btn">hiring a plumber</button>
+                        <button class="btn btn-outline-secondary btn-sm suggestion-btn">at the pharmacy</button>
+                        <button class="btn btn-outline-secondary btn-sm suggestion-btn">discussing the weather</button>
+                        <button class="btn btn-outline-secondary btn-sm suggestion-btn">a local fiesta</button>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" id="dialogue-topic" class="form-control"
+                           placeholder="Describe a scenario..." {% if not ai_available %}disabled{% endif %} />
+                    <button class="btn btn-primary" id="dialogue-btn"
+                            {% if not ai_available %}disabled{% endif %}>
+                        Generate
+                    </button>
+                </div>
+                <div id="dialogue-output" class="small text-muted fst-italic d-none bg-light p-3 rounded"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Translation check -->
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+                <h5 class="fw-bold mb-3">✅ Check My Translation</h5>
+                <p class="text-muted small">Enter a Spanish phrase and your English translation — the AI will evaluate it.</p>
+                <div class="mb-2">
+                    <label class="form-label small fw-semibold">Spanish phrase:</label>
+                    <input type="text" id="check-spanish" class="form-control mb-2"
+                           placeholder="e.g. ¿Qué onda, güey?" {% if not ai_available %}disabled{% endif %} />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small fw-semibold">Your English translation:</label>
+                    <input type="text" id="check-translation" class="form-control"
+                           placeholder="e.g. What's up, dude?" {% if not ai_available %}disabled{% endif %} />
+                </div>
+                <button class="btn btn-success w-100" id="check-btn"
+                        {% if not ai_available %}disabled{% endif %}>
+                    Check Translation
+                </button>
+                <div id="check-output" class="mt-3 d-none"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Daily phrase -->
+    <div class="col-12">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0">🌅 AI Daily Phrase</h5>
+                    <button class="btn btn-outline-primary btn-sm" id="daily-btn"
+                            {% if not ai_available %}disabled{% endif %}>
+                        Generate Phrase
+                    </button>
+                </div>
+                <div id="daily-output" class="d-none">
+                    <h4 class="fw-bold text-primary" id="daily-spanish"></h4>
+                    <p class="fw-semibold" id="daily-english"></p>
+                    <p class="text-muted small fst-italic" id="daily-note"></p>
+                </div>
+                {% if not ai_available %}
+                <p class="text-muted small">Enable AI to generate a fresh Mexican Spanish phrase for today.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Suggestion buttons auto-fill the topic input
+document.querySelectorAll('.suggestion-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.getElementById('dialogue-topic').value = btn.textContent.trim();
+    });
+});
+
+// Dialogue generator
+document.getElementById('dialogue-btn')?.addEventListener('click', async () => {
+    const topic = document.getElementById('dialogue-topic').value.trim();
+    if (!topic) return;
+    const btn = document.getElementById('dialogue-btn');
+    const output = document.getElementById('dialogue-output');
+    btn.disabled = true;
+    btn.textContent = '⏳ Generating...';
+    output.classList.add('d-none');
+    try {
+        const resp = await fetch('/api/practice-dialogue', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({topic})
+        });
+        const data = await resp.json();
+        if (data.dialogue) {
+            output.textContent = data.dialogue;
+            output.classList.remove('d-none');
+        } else {
+            output.textContent = data.error || 'Could not generate dialogue.';
+            output.classList.remove('d-none');
+        }
+    } catch {
+        output.textContent = 'AI service unavailable.';
+        output.classList.remove('d-none');
+    }
+    btn.disabled = false;
+    btn.textContent = 'Generate';
+});
+
+// Translation checker
+document.getElementById('check-btn')?.addEventListener('click', async () => {
+    const spanish = document.getElementById('check-spanish').value.trim();
+    const translation = document.getElementById('check-translation').value.trim();
+    if (!spanish || !translation) return;
+    const btn = document.getElementById('check-btn');
+    const output = document.getElementById('check-output');
+    btn.disabled = true;
+    btn.textContent = '⏳ Checking...';
+    output.classList.add('d-none');
+    try {
+        const resp = await fetch('/api/check-translation', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({spanish, translation})
+        });
+        const data = await resp.json();
+        if (data.feedback !== undefined) {
+            const icon = data.is_correct ? '✅' : '❌';
+            const cls = data.is_correct ? 'text-success' : 'text-danger';
+            output.innerHTML = `<p class="${cls} fw-semibold">${icon} ${data.feedback}</p>`;
+        } else {
+            output.innerHTML = `<p class="text-danger">${data.error || 'Could not check translation.'}</p>`;
+        }
+        output.classList.remove('d-none');
+    } catch {
+        output.innerHTML = '<p class="text-danger">AI service unavailable.</p>';
+        output.classList.remove('d-none');
+    }
+    btn.disabled = false;
+    btn.textContent = 'Check Translation';
+});
+
+// Daily phrase
+document.getElementById('daily-btn')?.addEventListener('click', async () => {
+    const btn = document.getElementById('daily-btn');
+    const output = document.getElementById('daily-output');
+    btn.disabled = true;
+    btn.textContent = '⏳ Loading...';
+    try {
+        const resp = await fetch('/api/daily-phrase');
+        const data = await resp.json();
+        if (data.spanish) {
+            document.getElementById('daily-spanish').textContent = data.spanish;
+            document.getElementById('daily-english').textContent = data.english;
+            document.getElementById('daily-note').textContent = data.cultural_note || '';
+            output.classList.remove('d-none');
+        }
+    } catch {
+        // silently fail
+    }
+    btn.disabled = false;
+    btn.textContent = 'Generate Phrase';
+});
+</script>
+{% endblock %}

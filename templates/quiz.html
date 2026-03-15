@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block title %}Quiz{% endblock %}
+
+{% block content %}
+<h1 class="mb-1">🧠 Quiz</h1>
+<p class="text-muted mb-4">Test your knowledge of Mexican Spanish from Ajijic.</p>
+
+<div class="row mb-3 g-2">
+    <div class="col-auto">
+        <form class="d-flex gap-2 flex-wrap" method="get">
+            <select name="category" class="form-select form-select-sm" onchange="this.form.submit()">
+                <option value="">All Categories</option>
+                {% for key, cat in categories.items() %}
+                <option value="{{ key }}" {% if selected_category == key %}selected{% endif %}>
+                    {{ cat.label }}
+                </option>
+                {% endfor %}
+            </select>
+            <select name="difficulty" class="form-select form-select-sm" onchange="this.form.submit()">
+                <option value="">All Levels</option>
+                <option value="beginner" {% if selected_difficulty == 'beginner' %}selected{% endif %}>Beginner</option>
+                <option value="intermediate" {% if selected_difficulty == 'intermediate' %}selected{% endif %}>Intermediate</option>
+                <option value="advanced" {% if selected_difficulty == 'advanced' %}selected{% endif %}>Advanced</option>
+            </select>
+            <button type="submit" class="btn btn-sm btn-outline-primary">Reload</button>
+        </form>
+    </div>
+</div>
+
+{% if questions %}
+<div id="quiz-container">
+    {% for q in questions %}
+    <div class="quiz-question mb-4 card shadow-sm border-0" data-index="{{ loop.index0 }}"
+         data-correct="{{ q.correct_answer | e }}">
+        <div class="card-body p-4">
+            <p class="text-muted small mb-1">Question {{ loop.index }} of {{ questions | length }}</p>
+            <h4 class="fw-bold text-primary mb-3">{{ q.question }}</h4>
+            <div class="row row-cols-1 row-cols-md-2 g-2">
+                {% for choice in q.choices %}
+                <div class="col">
+                    <button class="btn btn-outline-secondary w-100 text-start choice-btn"
+                            data-choice="{{ choice | e }}">
+                        {{ choice }}
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="feedback mt-3 d-none"></div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="card shadow border-0 d-none" id="quiz-results">
+    <div class="card-body text-center p-5">
+        <div class="display-3 mb-2" id="results-emoji">🎉</div>
+        <h2 class="fw-bold" id="results-score"></h2>
+        <p class="text-muted" id="results-message"></p>
+        <a href="{{ url_for('quiz', category=selected_category, difficulty=selected_difficulty) }}"
+           class="btn btn-primary me-2">Try Again</a>
+        <a href="{{ url_for('flashcards', category=selected_category, difficulty=selected_difficulty) }}"
+           class="btn btn-outline-secondary">Study Flashcards</a>
+    </div>
+</div>
+
+{% else %}
+<div class="alert alert-info">Not enough words for a quiz with the selected filters.</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+const questions = document.querySelectorAll('.quiz-question');
+let score = 0;
+let answered = 0;
+const total = questions.length;
+
+questions.forEach(qEl => {
+    const correct = qEl.dataset.correct;
+    const buttons = qEl.querySelectorAll('.choice-btn');
+    const feedback = qEl.querySelector('.feedback');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (qEl.dataset.answered) return;
+            qEl.dataset.answered = '1';
+            answered++;
+
+            const isCorrect = btn.dataset.choice === correct;
+            if (isCorrect) {
+                score++;
+                btn.classList.replace('btn-outline-secondary', 'btn-success');
+                feedback.textContent = '✅ Correct! ¡Muy bien!';
+                feedback.className = 'feedback mt-3 text-success fw-semibold';
+            } else {
+                btn.classList.replace('btn-outline-secondary', 'btn-danger');
+                feedback.innerHTML = `❌ Not quite. The answer is: <strong>${correct}</strong>`;
+                feedback.className = 'feedback mt-3 text-danger';
+                // Highlight the correct answer
+                buttons.forEach(b => {
+                    if (b.dataset.choice === correct) {
+                        b.classList.replace('btn-outline-secondary', 'btn-success');
+                    }
+                });
+            }
+            feedback.classList.remove('d-none');
+
+            if (answered === total) {
+                setTimeout(showResults, 800);
+            }
+        });
+    });
+});
+
+function showResults() {
+    document.getElementById('quiz-container').classList.add('d-none');
+    const resultsEl = document.getElementById('quiz-results');
+    resultsEl.classList.remove('d-none');
+    const pct = Math.round((score / total) * 100);
+    document.getElementById('results-score').textContent = `${score} / ${total} (${pct}%)`;
+    let emoji = '😅', msg = '¡Sigue practicando! Keep practicing!';
+    if (pct >= 90) { emoji = '🏆'; msg = '¡Excelente! You\'re a Ajijic Spanish pro!'; }
+    else if (pct >= 70) { emoji = '🎉'; msg = '¡Muy bien! Great job — keep it up!'; }
+    else if (pct >= 50) { emoji = '👍'; msg = '¡Bueno! Good effort — review the flashcards!'; }
+    document.getElementById('results-emoji').textContent = emoji;
+    document.getElementById('results-message').textContent = msg;
+}
+</script>
+{% endblock %}

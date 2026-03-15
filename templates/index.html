@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="row align-items-center mb-5">
+    <div class="col-md-7">
+        <h1 class="display-5 fw-bold">Learn Mexican Spanish</h1>
+        <p class="lead text-muted">
+            Vocabulary and expressions specific to <strong>Ajijic, Jalisco, Mexico</strong>
+            &mdash; the lakeside village, its markets, culture, and community.
+            {% if ai_available %}
+            <span class="badge bg-success ms-2">AI&nbsp;Enabled</span>
+            {% endif %}
+        </p>
+        <div class="d-flex gap-2 flex-wrap">
+            <a href="{{ url_for('flashcards') }}" class="btn btn-primary btn-lg">📇 Study Flashcards</a>
+            <a href="{{ url_for('quiz') }}" class="btn btn-outline-primary btn-lg">🧠 Take a Quiz</a>
+            <a href="{{ url_for('vocabulary_list') }}" class="btn btn-outline-secondary btn-lg">📖 Browse Vocabulary</a>
+        </div>
+    </div>
+    <div class="col-md-5 text-center mt-4 mt-md-0">
+        <div class="card shadow border-0 featured-card">
+            <div class="card-body p-4">
+                <p class="text-muted small mb-1">⭐ Featured Word</p>
+                <h2 class="fw-bold text-primary mb-1">{{ featured.spanish }}</h2>
+                <p class="text-secondary mb-2">{{ featured.english }}</p>
+                <p class="small fst-italic text-muted">{{ featured.notes }}</p>
+                <span class="badge bg-secondary">{{ featured.category }}</span>
+                <span class="badge bg-light text-dark ms-1">{{ featured.difficulty }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="my-4" />
+
+<h2 class="mb-3">Browse by Category</h2>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+    {% for cat_key, cat in categories.items() %}
+    <div class="col">
+        <a href="{{ url_for('vocabulary_list', category=cat_key) }}" class="text-decoration-none">
+            <div class="card h-100 category-card shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title fw-semibold">{{ cat.label }}</h5>
+                    <p class="card-text text-muted small">{{ cat.description }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-md-4">
+        <div class="card border-0 bg-primary text-white shadow">
+            <div class="card-body text-center py-4">
+                <div class="display-4 mb-2">📖</div>
+                <h4>{{ word_count }}</h4>
+                <p class="mb-0">Curated Words &amp; Phrases</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card border-0 bg-success text-white shadow">
+            <div class="card-body text-center py-4">
+                <div class="display-4 mb-2">🌮</div>
+                <h4>Jalisco Dialect</h4>
+                <p class="mb-0">Regional vocabulary &amp; slang</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card border-0 {% if ai_available %}bg-info{% else %}bg-secondary{% endif %} text-white shadow">
+            <div class="card-body text-center py-4">
+                <div class="display-4 mb-2">🤖</div>
+                <h4>AI Assistance</h4>
+                <p class="mb-0">
+                    {% if ai_available %}
+                    Powered explanations &amp; practice
+                    {% else %}
+                    Configure OPENAI_API_KEY to enable
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

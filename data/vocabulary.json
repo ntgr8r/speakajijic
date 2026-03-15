@@ -1,0 +1,646 @@
+{
+  "categories": {
+    "greetings": {
+      "label": "Saludos (Greetings)",
+      "description": "Common greetings and expressions used in Ajijic and the Lake Chapala area"
+    },
+    "food_drink": {
+      "label": "Comida y Bebida (Food & Drink)",
+      "description": "Local cuisine, restaurants, and drinks specific to Jalisco"
+    },
+    "places": {
+      "label": "Lugares (Places)",
+      "description": "Directions and landmarks around Ajijic, Chapala, and the Lake Chapala region"
+    },
+    "market": {
+      "label": "Mercado (Market)",
+      "description": "Vocabulary for shopping at the Ajijic market and tianguis"
+    },
+    "weather_lake": {
+      "label": "Clima y Lago (Weather & Lake)",
+      "description": "Weather patterns and lake-related vocabulary"
+    },
+    "social": {
+      "label": "Social y Cultura (Social & Culture)",
+      "description": "Social expressions, fiestas, and cultural terms specific to Jalisco"
+    },
+    "health": {
+      "label": "Salud (Health)",
+      "description": "Health and medical vocabulary useful for expats and residents"
+    },
+    "transport": {
+      "label": "Transporte (Transport)",
+      "description": "Getting around the Lake Chapala area"
+    },
+    "home": {
+      "label": "Casa y Hogar (Home)",
+      "description": "Household vocabulary and working with local contractors"
+    },
+    "slang": {
+      "label": "Slang Mexicano (Mexican Slang)",
+      "description": "Informal Mexican Spanish expressions and Jalisco regional slang"
+    }
+  },
+  "words": [
+    {
+      "id": 1,
+      "spanish": "¿Qué onda?",
+      "english": "What's up? / How's it going?",
+      "category": "greetings",
+      "notes": "Very common informal greeting in Mexico. More casual than '¿Cómo estás?'",
+      "example_es": "¿Qué onda, güey? ¿Todo bien?",
+      "example_en": "What's up, dude? All good?",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 2,
+      "spanish": "¿Qué pasó?",
+      "english": "What happened? / What's up?",
+      "category": "greetings",
+      "notes": "Used as a greeting or to ask what happened. Common in Jalisco.",
+      "example_es": "¡Hola vecino! ¿Qué pasó?",
+      "example_en": "Hey neighbor! What's up?",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 3,
+      "spanish": "Buenas",
+      "english": "Hi / Good (short for buenos días/tardes/noches)",
+      "category": "greetings",
+      "notes": "A quick, casual greeting used any time of day throughout Mexico.",
+      "example_es": "Buenas, ¿tiene limones?",
+      "example_en": "Hi, do you have limes?",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 4,
+      "spanish": "Mande",
+      "english": "Pardon? / Yes? / How can I help you?",
+      "category": "greetings",
+      "notes": "Very Mexican polite response when you didn't hear something. More formal than '¿Qué?'",
+      "example_es": "—Señora. —¿Mande?",
+      "example_en": "—Ma'am. —Yes? / Pardon?",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 5,
+      "spanish": "Chelas",
+      "english": "Beers (informal)",
+      "category": "food_drink",
+      "notes": "Informal Mexican slang for beer. Very common in Jalisco social settings.",
+      "example_es": "¿Vamos por unas chelas al lago?",
+      "example_en": "Shall we grab some beers by the lake?",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 6,
+      "spanish": "Birria",
+      "english": "Birria (braised goat or beef stew)",
+      "category": "food_drink",
+      "notes": "Jalisco's signature dish. Slow-cooked spiced meat stew, especially popular on weekends.",
+      "example_es": "La birria de chivo de Ajijic es la mejor.",
+      "example_en": "The goat birria from Ajijic is the best.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 7,
+      "spanish": "Torta ahogada",
+      "english": "Drowned sandwich",
+      "category": "food_drink",
+      "notes": "A Jalisco-specialty sandwich drowned in spicy tomato-chile sauce. A must-try in the Guadalajara area.",
+      "example_es": "Quiero una torta ahogada bien picosa.",
+      "example_en": "I want a well-spiced drowned sandwich.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 8,
+      "spanish": "Aguas frescas",
+      "english": "Fresh fruit waters / flavored drinks",
+      "category": "food_drink",
+      "notes": "Non-alcoholic drinks made from fruits, flowers, or seeds. Jamaica, horchata, and tamarindo are popular.",
+      "example_es": "Una agua de jamaica, por favor.",
+      "example_en": "A hibiscus water, please.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 9,
+      "spanish": "Elote",
+      "english": "Corn on the cob (fresh)",
+      "category": "food_drink",
+      "notes": "In Mexico, 'elote' specifically refers to fresh corn. Street vendors called 'eloteros' are common in Ajijic.",
+      "example_es": "El elotero pasa por la calle Morelos cada tarde.",
+      "example_en": "The corn vendor passes by Morelos street every afternoon.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 10,
+      "spanish": "Chapala",
+      "english": "Lake Chapala / the town of Chapala",
+      "category": "places",
+      "notes": "Mexico's largest freshwater lake, adjacent to Ajijic. Also refers to the town of Chapala.",
+      "example_es": "Voy al malecón de Chapala este fin de semana.",
+      "example_en": "I'm going to the Chapala boardwalk this weekend.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 11,
+      "spanish": "El malecón",
+      "english": "The boardwalk / waterfront promenade",
+      "category": "places",
+      "notes": "The lakefront walkway. Both Ajijic and Chapala have malecones—popular spots for locals and expats.",
+      "example_es": "Caminemos por el malecón al atardecer.",
+      "example_en": "Let's walk along the boardwalk at sunset.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 12,
+      "spanish": "El tianguis",
+      "english": "Outdoor market / flea market",
+      "category": "places",
+      "notes": "Traditional open-air market. Ajijic's tianguis (Wednesday and Saturday) is a community institution.",
+      "example_es": "Voy al tianguis el miércoles para comprar verduras.",
+      "example_en": "I'm going to the outdoor market on Wednesday to buy vegetables.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 13,
+      "spanish": "La carretera",
+      "english": "The highway / main road",
+      "category": "places",
+      "notes": "In Ajijic, 'la carretera' almost always refers to the main lakeside highway (Carretera Chapala-Jocotepec).",
+      "example_es": "El restaurante está sobre la carretera.",
+      "example_en": "The restaurant is on the main highway.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 14,
+      "spanish": "El lago",
+      "english": "The lake (Lake Chapala)",
+      "category": "places",
+      "notes": "When locals say 'el lago' in Ajijic, they always mean Lake Chapala.",
+      "example_es": "¿Bajamos al lago a ver el atardecer?",
+      "example_en": "Shall we go down to the lake to watch the sunset?",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 15,
+      "spanish": "¿A cuánto está?",
+      "english": "How much is it?",
+      "category": "market",
+      "notes": "The standard way to ask price at a market. More natural than '¿Cuánto cuesta?'",
+      "example_es": "¿A cuánto están los aguacates?",
+      "example_en": "How much are the avocados?",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 16,
+      "spanish": "¿Me da...?",
+      "english": "Can you give me...? / I'll take...",
+      "category": "market",
+      "notes": "Polite way to order or request items at market stalls. More natural than 'Quiero...'",
+      "example_es": "¿Me da un kilo de jitomate?",
+      "example_en": "Can I have a kilo of tomatoes?",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 17,
+      "spanish": "¿Le falta algo?",
+      "english": "Is there anything else? / Are you missing anything?",
+      "category": "market",
+      "notes": "Vendors commonly ask this when you're wrapping up a purchase.",
+      "example_es": "—Aquí tiene su cambio. ¿Le falta algo? —No, gracias, ya está.",
+      "example_en": "—Here's your change. Anything else? —No thanks, that's all.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 18,
+      "spanish": "Jitomate",
+      "english": "Tomato (red tomato)",
+      "category": "market",
+      "notes": "In Mexico, 'jitomate' is the red tomato. 'Tomate' refers to the green tomatillo.",
+      "example_es": "Necesito jitomates para la salsa.",
+      "example_en": "I need tomatoes for the salsa.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 19,
+      "spanish": "La temporada de lluvias",
+      "english": "The rainy season",
+      "category": "weather_lake",
+      "notes": "Ajijic's rainy season (June–October) brings afternoon storms. The rest of the year is dry and mild.",
+      "example_es": "Ya empezó la temporada de lluvias—hay que regar menos el jardín.",
+      "example_en": "The rainy season has started—we need to water the garden less.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 20,
+      "spanish": "El norte",
+      "english": "The north wind / cold front",
+      "category": "weather_lake",
+      "notes": "Cold winter winds from the north that sweep across Lake Chapala, causing choppy water.",
+      "example_es": "Hoy está soplando el norte; llévate un suéter.",
+      "example_en": "The north wind is blowing today; bring a sweater.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 21,
+      "spanish": "Fresco/a",
+      "english": "Cool / Fresh (weather)",
+      "category": "weather_lake",
+      "notes": "Ajijic's climate is often described as 'fresco'—pleasantly cool, the 'City of Eternal Spring' (though this is really neighboring Guadalajara's nickname).",
+      "example_es": "Qué fresco está hoy en la mañana.",
+      "example_en": "It's so cool/pleasant this morning.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 22,
+      "spanish": "La fiesta",
+      "english": "Festival / Party / Saint's day celebration",
+      "category": "social",
+      "notes": "Ajijic has many local fiestas celebrating patron saints. The San Andrés fiesta in November is a major event.",
+      "example_es": "La fiesta de San Andrés es en noviembre con fuegos artificiales.",
+      "example_en": "The Saint Andrew's festival is in November with fireworks.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 23,
+      "spanish": "Los cohetones",
+      "english": "Large fireworks / firecrackers",
+      "category": "social",
+      "notes": "Loud rockets set off during fiestas at all hours. A very common Ajijic experience!",
+      "example_es": "Los cohetones empezaron a las 5 de la mañana otra vez.",
+      "example_en": "The fireworks started at 5 in the morning again.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 24,
+      "spanish": "La cuadrilla",
+      "english": "Work crew / team of workers",
+      "category": "home",
+      "notes": "A crew of local workers for construction or garden projects. Very commonly used in expat conversations.",
+      "example_es": "La cuadrilla viene el lunes a pintar la barda.",
+      "example_en": "The work crew is coming Monday to paint the wall.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 25,
+      "spanish": "El jardín",
+      "english": "The garden / yard",
+      "category": "home",
+      "notes": "Ajijic homes often have beautiful gardens. This also refers to the town square (jardín principal).",
+      "example_es": "Las buganvilias del jardín están floreciendo.",
+      "example_en": "The bougainvilleas in the garden are blooming.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 26,
+      "spanish": "La barda",
+      "english": "The wall / boundary wall",
+      "category": "home",
+      "notes": "A common feature of Mexican homes—the exterior masonry wall around the property.",
+      "example_es": "Necesitamos pintar la barda antes de la temporada de lluvias.",
+      "example_en": "We need to paint the boundary wall before the rainy season.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 27,
+      "spanish": "El tinaco",
+      "english": "Rooftop water tank",
+      "category": "home",
+      "notes": "Plastic water storage tanks on rooftops are common throughout Mexico including Ajijic.",
+      "example_es": "Hay que revisar el tinaco—se puede estar acabando el agua.",
+      "example_en": "We should check the water tank—the water might be running low.",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 28,
+      "spanish": "El camión",
+      "english": "Bus (local bus)",
+      "category": "transport",
+      "notes": "In Mexico, local buses are called 'camiones.' The camión runs between Ajijic and Guadalajara.",
+      "example_es": "El camión a Guadalajara sale cada hora de la parada.",
+      "example_en": "The bus to Guadalajara leaves every hour from the stop.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 29,
+      "spanish": "La combi",
+      "english": "Minivan/microbus (shared transport)",
+      "category": "transport",
+      "notes": "Small shared vans running along the lake road, a cheap way to get between towns.",
+      "example_es": "Toma la combi hasta Chapala—cuesta muy poco.",
+      "example_en": "Take the minibus to Chapala—it costs very little.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 30,
+      "spanish": "Güey (wey)",
+      "english": "Dude / man / buddy (informal)",
+      "category": "slang",
+      "notes": "The most ubiquitous informal term in Mexican Spanish. Can be used between friends regardless of gender. Not offensive between friends.",
+      "example_es": "¡No manches, güey, qué chido!",
+      "example_en": "No way, dude, that's so cool!",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 31,
+      "spanish": "No manches",
+      "english": "No way! / Are you serious? / Wow! (mild expletive)",
+      "category": "slang",
+      "notes": "A mild exclamation used to express surprise or frustration. Family-friendly version of a stronger expression.",
+      "example_es": "¡No manches! ¿Ya llegó el verano?",
+      "example_en": "No way! Has summer already arrived?",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 32,
+      "spanish": "Chido/a",
+      "english": "Cool / Awesome / Great",
+      "category": "slang",
+      "notes": "Very common Mexican slang for something being cool or excellent.",
+      "example_es": "Ese restaurante nuevo está bien chido.",
+      "example_en": "That new restaurant is really cool.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 33,
+      "spanish": "Ahorita",
+      "english": "Right now / In a moment / Later (context-dependent)",
+      "category": "slang",
+      "notes": "One of the most important Mexican expressions to understand! Meaning depends entirely on context—could mean in a few minutes, a few hours, or never.",
+      "example_es": "—¿Cuándo llega el plomero? —Ahorita.",
+      "example_en": "—When does the plumber arrive? —(Soon/Later/Eventually).",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 34,
+      "spanish": "Ándale",
+      "english": "Come on / Go ahead / Okay / That's right",
+      "category": "slang",
+      "notes": "Extremely versatile Mexican expression used to agree, encourage, or acknowledge something.",
+      "example_es": "—¿Nos vamos? —¡Ándale!",
+      "example_en": "—Shall we go? —Let's go! / Alright!",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 35,
+      "spanish": "Órale",
+      "english": "Okay / Alright / Yeah / Let's go",
+      "category": "slang",
+      "notes": "Similar to 'ándale.' Can express agreement, surprise, or encouragement. Very Jalisco/Mexican.",
+      "example_es": "¿Vamos al lago? ¡Órale!",
+      "example_en": "Going to the lake? Sure!/Let's go!",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 36,
+      "spanish": "A huevo",
+      "english": "Hell yeah / Absolutely / For sure (strong affirmation)",
+      "category": "slang",
+      "notes": "Strong affirmative expression. Considered mild profanity—use among friends, not in formal settings.",
+      "example_es": "—¿Ya ganó el equipo? —¡A huevo!",
+      "example_en": "—Did the team win? —Hell yeah!",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 37,
+      "spanish": "El chisme",
+      "english": "Gossip / Rumor",
+      "category": "social",
+      "notes": "Small-town Ajijic has plenty of chisme! An important social concept.",
+      "example_es": "¿Ya oíste el chisme del vecino?",
+      "example_en": "Have you heard the gossip about the neighbor?",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 38,
+      "spanish": "La mordida",
+      "english": "Bribe / small unofficial payment",
+      "category": "social",
+      "notes": "Literally 'the bite.' Refers to unofficial payments to officials. Important cultural concept to understand.",
+      "example_es": "A veces los trámites van más rápido con una mordida.",
+      "example_en": "Sometimes paperwork goes faster with a little bribe.",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 39,
+      "spanish": "El trámite",
+      "english": "Paperwork / bureaucratic procedure",
+      "category": "social",
+      "notes": "Government paperwork and procedures. Expats frequently deal with trámites for residency, car permits, etc.",
+      "example_es": "Tengo que hacer un trámite en la delegación mañana.",
+      "example_en": "I have to do some paperwork at the local government office tomorrow.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 40,
+      "spanish": "El gringo/a",
+      "english": "Foreigner (usually North American)",
+      "category": "social",
+      "notes": "Common term for foreigners, especially North Americans. Not necessarily offensive in Mexico—context matters.",
+      "example_es": "Ajijic tiene muchos gringos que vienen a retirarse.",
+      "example_en": "Ajijic has many foreigners who come to retire.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 41,
+      "spanish": "El expat",
+      "english": "Expat / expatriate",
+      "category": "social",
+      "notes": "Ajijic has one of the largest expat communities in Mexico, mostly retirees from the US and Canada.",
+      "example_es": "La comunidad expat de Ajijic organiza muchos eventos.",
+      "example_en": "The expat community in Ajijic organizes many events.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 42,
+      "spanish": "La clínica",
+      "english": "Clinic / medical office",
+      "category": "health",
+      "notes": "Several clinics and hospitals serve the Ajijic/Lake Chapala area.",
+      "example_es": "Voy a la clínica porque me duele la garganta.",
+      "example_en": "I'm going to the clinic because my throat hurts.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 43,
+      "spanish": "El médico/La médica",
+      "english": "The doctor",
+      "category": "health",
+      "notes": "Standard term for a medical doctor. You may also hear 'doctor/doctora'.",
+      "example_es": "Necesito ver a un médico—llevo tres días enfermo.",
+      "example_en": "I need to see a doctor—I've been sick for three days.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 44,
+      "spanish": "Me duele...",
+      "english": "My ... hurts / I have pain in ...",
+      "category": "health",
+      "notes": "Essential phrase for describing pain. 'Me duele la cabeza' = my head hurts, 'Me duele el estómago' = my stomach hurts.",
+      "example_es": "Me duele mucho la rodilla desde ayer.",
+      "example_en": "My knee has been hurting a lot since yesterday.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 45,
+      "spanish": "La farmacia",
+      "english": "Pharmacy / drugstore",
+      "category": "health",
+      "notes": "Pharmacies in Mexico often have a doctor on duty. Many medications available without a prescription.",
+      "example_es": "¿Hay una farmacia cerca de aquí?",
+      "example_en": "Is there a pharmacy nearby?",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 46,
+      "spanish": "Pozole",
+      "english": "Pozole (hominy stew with pork or chicken)",
+      "category": "food_drink",
+      "notes": "A traditional Mexican soup/stew very popular in Jalisco, especially on weekends and celebrations.",
+      "example_es": "Los jueves hay pozole en ese restaurante del centro.",
+      "example_en": "On Thursdays there's pozole at that restaurant in the center.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 47,
+      "spanish": "Tequila",
+      "english": "Tequila",
+      "category": "food_drink",
+      "notes": "The world-famous spirit is from Jalisco! The town of Tequila is about 1.5 hours from Ajijic.",
+      "example_es": "Jalisco es la cuna del tequila.",
+      "example_en": "Jalisco is the birthplace of tequila.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 48,
+      "spanish": "El mercado",
+      "english": "Market (covered/indoor)",
+      "category": "market",
+      "notes": "The Ajijic mercado municipal is a covered market selling fresh produce, meat, and household goods.",
+      "example_es": "El mercado abre todos los días a las siete.",
+      "example_en": "The market opens every day at seven.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 49,
+      "spanish": "¿Me regala...?",
+      "english": "Could I have...? / May I have...? (polite request)",
+      "category": "market",
+      "notes": "Literally 'Will you gift me...?' — a uniquely Mexican polite way to ask for something at a counter or shop.",
+      "example_es": "¿Me regala una bolsa, por favor?",
+      "example_en": "Could I have a bag, please?",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 50,
+      "spanish": "La lucha libre",
+      "english": "Mexican wrestling",
+      "category": "social",
+      "notes": "Popular Mexican entertainment. Occasional lucha libre events are held in the Chapala area.",
+      "example_es": "Esta noche hay lucha libre en Chapala.",
+      "example_en": "Tonight there's Mexican wrestling in Chapala.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 51,
+      "spanish": "El zócalo",
+      "english": "Main town square / plaza",
+      "category": "places",
+      "notes": "The central plaza of a Mexican town. The zócalo of Ajijic is the social heart of the community.",
+      "example_es": "Nos vemos en el zócalo a las seis.",
+      "example_en": "Let's meet at the main plaza at six.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 52,
+      "spanish": "La parroquia",
+      "english": "The parish church",
+      "category": "places",
+      "notes": "The colonial-era parish church of San Andrés Apóstol is central to life in Ajijic.",
+      "example_es": "La parroquia de San Andrés tiene una arquitectura hermosa.",
+      "example_en": "The Saint Andrew's parish church has beautiful architecture.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 53,
+      "spanish": "El Ojo de Agua",
+      "english": "The Ojo de Agua (natural spring/water park)",
+      "category": "places",
+      "notes": "A popular natural spring recreational area near Ajijic.",
+      "example_es": "Los niños adoran nadar en el Ojo de Agua.",
+      "example_en": "Kids love swimming at the Ojo de Agua.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 54,
+      "spanish": "Padrino/Madrina",
+      "english": "Godfather / Godmother",
+      "category": "social",
+      "notes": "The godparent system (compadrazgo) is central to Mexican social structure. Being someone's padrino/madrina carries real social obligations.",
+      "example_es": "Me pidieron ser padrino de la boda.",
+      "example_en": "They asked me to be the wedding godfather/sponsor.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 55,
+      "spanish": "La nieve",
+      "english": "Ice cream (sorbet style) / Snow",
+      "category": "food_drink",
+      "notes": "In Mexico, 'nieve' often refers to traditional sorbet-style frozen desserts, not just snow.",
+      "example_es": "Vamos por una nieve de limón después del paseo.",
+      "example_en": "Let's get a lime sorbet after the walk.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 56,
+      "spanish": "El aguacate",
+      "english": "Avocado",
+      "category": "food_drink",
+      "notes": "Michoacán and Jalisco are major avocado-producing regions. Avocados are fresh and affordable locally.",
+      "example_es": "Los aguacates aquí son mucho mejores que en el norte.",
+      "example_en": "The avocados here are much better than up north.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 57,
+      "spanish": "La paleta",
+      "english": "Popsicle / ice pop",
+      "category": "food_drink",
+      "notes": "Mexican paletas come in incredible fresh fruit flavors. The paleta carts are common on Ajijic's streets.",
+      "example_es": "¿Quieres una paleta de mango con chile?",
+      "example_en": "Do you want a mango chili popsicle?",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 58,
+      "spanish": "El carro / El coche",
+      "english": "Car",
+      "category": "transport",
+      "notes": "Both 'carro' and 'coche' are used in Mexico. 'Carro' is more common in northern Mexico; 'coche' more in Jalisco.",
+      "example_es": "Dejé el coche en el estacionamiento del mercado.",
+      "example_en": "I left the car in the market parking lot.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 59,
+      "spanish": "El mototaxi",
+      "english": "Motorcycle taxi / tuk-tuk",
+      "category": "transport",
+      "notes": "Three-wheeled motorcycle taxis (also called 'mototaxis' or 'triciclos') are common in the Lake Chapala area.",
+      "example_es": "Toma un mototaxi al centro—es más rápido.",
+      "example_en": "Take a mototaxi to the center—it's faster.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 60,
+      "spanish": "La plomería",
+      "english": "Plumbing",
+      "category": "home",
+      "notes": "Dealing with plumbing issues is a common experience for homeowners in Ajijic.",
+      "example_es": "Necesitamos llamar a un plomero—hay una fuga.",
+      "example_en": "We need to call a plumber—there's a leak.",
+      "difficulty": "intermediate"
+    }
+  ]
+}
